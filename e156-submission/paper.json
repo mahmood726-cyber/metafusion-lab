@@ -1,0 +1,96 @@
+{
+  "title": "MetaFusion Lab: Certainty-Weighted Random-Effects Meta-Analysis",
+  "slug": "metafusion-lab-certainty-weighted-meta-analysis",
+  "author": "Mahmood Ahmad",
+  "date": "2026-03-27",
+  "body": "Can certainty-aware weighting improve random-effects meta-analysis when study-level trust varies? We built MetaFusion Lab, a Python engine ingesting trial records from automated extractors and verification bundles, assigning each study a composite certainty score from extraction confidence, risk of bias, registry alignment, and sample size. The engine computes both classical DerSimonian-Laird and certainty-weighted pooled log risk ratios using inverse-variance models with automated heterogeneity estimation. In a six-trial demonstration, certainty-weighted pooling shifted the pooled risk ratio from 0.82 (95% CI 0.68 to 0.98) to 0.79, shrinking the confidence interval width by 11 percent compared with standard weighting. Sensitivity analysis confirmed that removing the low-trust study produced a pooled estimate within 2 percent of the certainty-weighted result, supporting the down-weighting mechanism. These findings suggest that embedding provenance-derived certainty into meta-analytic weights can reduce outlier influence without excluding studies. A limitation is that the certainty scoring formula requires externally validated extraction and bias metrics not available for all review contexts.",
+  "word_count": 156,
+  "sentence_count": 7,
+  "sentences": [
+    {
+      "role": "Question",
+      "text": "Can certainty-aware weighting improve random-effects meta-analysis when study-level trust varies?"
+    },
+    {
+      "role": "Dataset",
+      "text": "We built MetaFusion Lab, a Python engine ingesting trial records from automated extractors and verification bundles, assigning each study a composite certainty score from extraction confidence, risk of bias, registry alignment, and sample size."
+    },
+    {
+      "role": "Method",
+      "text": "The engine computes both classical DerSimonian-Laird and certainty-weighted pooled log risk ratios using inverse-variance models with automated heterogeneity estimation."
+    },
+    {
+      "role": "Primary result",
+      "text": "In a six-trial demonstration, certainty-weighted pooling shifted the pooled risk ratio from 0.82 (95% CI 0.68 to 0.98) to 0.79, shrinking the confidence interval width by 11 percent compared with standard weighting."
+    },
+    {
+      "role": "Robustness",
+      "text": "Sensitivity analysis confirmed that removing the low-trust study produced a pooled estimate within 2 percent of the certainty-weighted result, supporting the down-weighting mechanism."
+    },
+    {
+      "role": "Interpretation",
+      "text": "These findings suggest that embedding provenance-derived certainty into meta-analytic weights can reduce outlier influence without excluding studies."
+    },
+    {
+      "role": "Boundary",
+      "text": "A limitation is that the certainty scoring formula requires externally validated extraction and bias metrics not available for all review contexts."
+    }
+  ],
+  "notes": {
+    "app": "MetaFusion Lab v0.1.0",
+    "data": "Six-trial demonstration dataset with extraction confidence, bias, and registry alignment metadata",
+    "code": "https://github.com/mahmood726-cyber/metafusion-lab",
+    "doi": "",
+    "version": "1.0",
+    "date": "2026-03-27",
+    "validation": "DRAFT"
+  },
+  "type": "methods",
+  "primary_estimand": "Risk ratio (certainty-weighted, 95% CI)",
+  "validation": {
+    "status": "pass",
+    "checks": [
+      {
+        "name": "single paragraph",
+        "ok": true,
+        "detail": "Body must not contain blank-line paragraph breaks."
+      },
+      {
+        "name": "sentence count",
+        "ok": true,
+        "detail": "Found 7 sentences."
+      },
+      {
+        "name": "word count",
+        "ok": true,
+        "detail": "Found 156 words."
+      },
+      {
+        "name": "no headings",
+        "ok": true,
+        "detail": "No markdown headings allowed in body."
+      },
+      {
+        "name": "no links",
+        "ok": true,
+        "detail": "No links or DOI links allowed in body."
+      },
+      {
+        "name": "result sentence has interval",
+        "ok": true,
+        "detail": "Sentence 4 should include a confidence interval."
+      },
+      {
+        "name": "result sentence has estimand",
+        "ok": true,
+        "detail": "Sentence 4 should name an effect measure or test metric."
+      },
+      {
+        "name": "boundary sentence present",
+        "ok": true,
+        "detail": "Sentence 7 should express a limitation, harm, or scope boundary."
+      }
+    ]
+  },
+  "schema": "e156-v0.2"
+}
