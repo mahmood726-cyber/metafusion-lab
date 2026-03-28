@@ -1,0 +1,6 @@
+study_id,year,comparison,outcome,effect_log_rr,standard_error,sample_size,extraction_confidence,risk_of_bias,registry_match,notes
+HF-Bridge-01,2021,Intervention vs Control,Mortality,-0.23,0.12,340,0.96,0.10,0.95,Manually adjudicated extraction.
+HF-Bridge-02,2022,Intervention vs Control,Mortality,-0.18,0.10,520,0.91,0.15,0.93,Registry and manuscript agree.
+HF-Bridge-03,2023,Intervention vs Control,Mortality,-0.05,0.18,180,0.88,0.25,0.90,Outcome definition slightly broader.
+HF-Bridge-04,2024,Intervention vs Control,Mortality,0.35,0.16,140,0.52,0.60,0.40,OCR-first extraction; event counts need manual review.
+HF-Bridge-05,2025,Intervention vs Control,Mortality,-0.27,0.14,260,0.94,0.20,0.96,Preprint and registry totals match.

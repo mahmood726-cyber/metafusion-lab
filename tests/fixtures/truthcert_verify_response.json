@@ -1,0 +1,169 @@
+{
+  "success": true,
+  "bundle": {
+    "bundleId": "bundle-checkmate-067",
+    "bundleHash": "abc123",
+    "policyAnchorRef": "policy-1",
+    "scopeLockRef": "scope-1",
+    "terminalState": "SHIPPED",
+    "values": {
+      "study_id": {
+        "value": "checkmate_067_2015",
+        "label": "FACT",
+        "confidence": 0.95,
+        "sourceSnippet": "CheckMate 067 trial"
+      },
+      "publication_year": {
+        "value": 2015,
+        "label": "FACT",
+        "confidence": 0.93
+      },
+      "primary_outcome_name": {
+        "value": "PFS",
+        "label": "FACT",
+        "confidence": 0.92
+      },
+      "effect_estimate_type": {
+        "value": "HR",
+        "label": "FACT",
+        "confidence": 0.96
+      },
+      "effect_estimate_value": {
+        "value": 0.57,
+        "label": "DERIVED",
+        "confidence": 0.94,
+        "sourceSnippet": "hazard ratio, 0.57; 95% CI, 0.43 to 0.76"
+      },
+      "primary_outcome_ci_lower": {
+        "value": 0.43,
+        "label": "DERIVED",
+        "confidence": 0.91
+      },
+      "primary_outcome_ci_upper": {
+        "value": 0.76,
+        "label": "DERIVED",
+        "confidence": 0.91
+      },
+      "primary_outcome_treatment_n": {
+        "value": 472,
+        "label": "FACT",
+        "confidence": 0.89
+      },
+      "primary_outcome_control_n": {
+        "value": 470,
+        "label": "FACT",
+        "confidence": 0.89
+      },
+      "allocation_concealment": {
+        "value": "unclear",
+        "label": "INTERPRETATION",
+        "confidence": 0.72
+      }
+    },
+    "gateOutcomes": {
+      "b1-witnesses": {
+        "passed": true,
+        "details": {},
+        "failureReasons": [],
+        "warnings": [],
+        "durationMs": 120,
+        "timestamp": "2026-03-24T10:00:00Z"
+      },
+      "b3-structural": {
+        "passed": true,
+        "details": {},
+        "failureReasons": [],
+        "warnings": [],
+        "durationMs": 80,
+        "timestamp": "2026-03-24T10:00:01Z"
+      },
+      "b5-semantic": {
+        "passed": true,
+        "details": {},
+        "failureReasons": [],
+        "warnings": [],
+        "durationMs": 140,
+        "timestamp": "2026-03-24T10:00:02Z"
+      }
+    },
+    "failureReasons": [],
+    "rerunRecipe": {
+      "scopeLockId": "scope-1",
+      "policyAnchorId": "policy-1",
+      "documentHash": "doc-hash",
+      "randomSeeds": [0.1234],
+      "providerVersions": {
+        "openai": "gpt-4.1",
+        "anthropic": "claude-sonnet-4"
+      }
+    },
+    "efficiency": {
+      "totalDurationMs": 430,
+      "totalTokens": 1800,
+      "totalCost": 0.12,
+      "gateTimings": {
+        "b1-witnesses": 120,
+        "b3-structural": 80,
+        "b5-semantic": 140
+      },
+      "witnessCount": 2,
+      "retriesCount": 0
+    },
+    "createdAt": "2026-03-24T10:00:03Z",
+    "metadata": {
+      "validatorVersion": "3.1.0",
+      "truthcertVersion": "3.1.0",
+      "environment": "test"
+    }
+  },
+  "fieldAgreements": [
+    {
+      "field": "study_id",
+      "label": "FACT",
+      "agreement": 0.96,
+      "required": true,
+      "passed": true,
+      "consensusValue": "checkmate_067_2015"
+    },
+    {
+      "field": "primary_outcome_name",
+      "label": "FACT",
+      "agreement": 0.91,
+      "required": true,
+      "passed": true,
+      "consensusValue": "PFS"
+    },
+    {
+      "field": "effect_estimate_type",
+      "label": "FACT",
+      "agreement": 0.95,
+      "required": true,
+      "passed": true,
+      "consensusValue": "HR"
+    },
+    {
+      "field": "effect_estimate_value",
+      "label": "DERIVED",
+      "agreement": 0.94,
+      "required": true,
+      "passed": true,
+      "consensusValue": 0.57
+    },
+    {
+      "field": "primary_outcome_ci_lower",
+      "label": "DERIVED",
+      "agreement": 0.9,
+      "required": false,
+      "passed": true,
+      "consensusValue": 0.43
+    },
+    {
+      "field": "primary_outcome_ci_upper",
+      "label": "DERIVED",
+      "agreement": 0.9,
+      "required": false,
+      "passed": true,
+      "consensusValue": 0.76
+    }
+  ]
+}
