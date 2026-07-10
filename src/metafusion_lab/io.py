@@ -30,6 +30,12 @@ def load_trial_records(csv_path: str | Path) -> list[TrialRecord]:
     with path.open("r", encoding="utf-8", newline="") as handle:
         reader = csv.DictReader(handle)
         for row in reader:
+            standard_error = float(row["standard_error"])
+            if standard_error <= 0:
+                raise ValueError(
+                    "standard_error must be > 0 "
+                    f"(study {row.get('study_id')!r} has {standard_error})."
+                )
             records.append(
                 TrialRecord(
                     study_id=row["study_id"],
@@ -37,7 +43,7 @@ def load_trial_records(csv_path: str | Path) -> list[TrialRecord]:
                     comparison=row["comparison"],
                     outcome=row["outcome"],
                     effect_log_rr=float(row["effect_log_rr"]),
-                    standard_error=float(row["standard_error"]),
+                    standard_error=standard_error,
                     sample_size=_optional_int(row.get("sample_size")),
                     extraction_confidence=_optional_float(row.get("extraction_confidence")),
                     risk_of_bias=_optional_float(row.get("risk_of_bias")),

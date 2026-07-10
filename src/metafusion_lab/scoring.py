@@ -10,7 +10,9 @@ def clamp(value: float, low: float = 0.0, high: float = 1.0) -> float:
 
 
 def score_trial(record: TrialRecord) -> LedgerEntry:
-    extraction = clamp(record.extraction_confidence or 0.7)
+    extraction = clamp(
+        record.extraction_confidence if record.extraction_confidence is not None else 0.7
+    )
     bias_resistance = 1.0 - clamp(record.risk_of_bias if record.risk_of_bias is not None else 0.25)
     registry_alignment = clamp(record.registry_match if record.registry_match is not None else 0.75)
     size_signal = (

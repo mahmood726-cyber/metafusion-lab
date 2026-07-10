@@ -62,21 +62,21 @@ MetaFusion-Lab/
 
 ```bash
 cd /mnt/c/Users/user/MetaFusion-Lab
-PYTHONPATH=src python3 -m metafusion_lab demo
+PYTHONPATH=src python -m metafusion_lab demo
 ```
 
 Generate a report file:
 
 ```bash
 cd /mnt/c/Users/user/MetaFusion-Lab
-PYTHONPATH=src python3 -m metafusion_lab report --format csv --input data/demo_trials.csv --output report.md
+PYTHONPATH=src python -m metafusion_lab report --format csv --input data/demo_trials.csv --output report.md
 ```
 
 Inspect which local repositories can be connected next:
 
 ```bash
 cd /mnt/c/Users/user/MetaFusion-Lab
-PYTHONPATH=src python3 -m metafusion_lab inspect-local --base-dir /mnt/c/Users/user
+PYTHONPATH=src python -m metafusion_lab inspect-local --base-dir /mnt/c/Users/user
 ```
 
 ## Upstream adapters
@@ -85,7 +85,7 @@ Import validated `rct-extractor-v2` MA records:
 
 ```bash
 cd /mnt/c/Users/user/MetaFusion-Lab
-PYTHONPATH=src python3 -m metafusion_lab report \
+PYTHONPATH=src python -m metafusion_lab report \
   --format rct-extractor \
   --input /mnt/c/Users/user/rct-extractor-v2/output/external_all_validated_augmented_v3_deep_pdf_only_advfix_ma_records_validated.jsonl
 ```
@@ -94,7 +94,7 @@ You can also point `--input` at a directory of validated `rct-extractor-v2` expo
 
 ```bash
 cd /mnt/c/Users/user/MetaFusion-Lab
-PYTHONPATH=src python3 -m metafusion_lab report \
+PYTHONPATH=src python -m metafusion_lab report \
   --format rct-extractor \
   --input /mnt/c/Users/user/rct-extractor-v2/output/batches/
 ```
@@ -105,7 +105,7 @@ Import a saved TruthCert verify response or bundle:
 
 ```bash
 cd /mnt/c/Users/user/MetaFusion-Lab
-PYTHONPATH=src python3 -m metafusion_lab report \
+PYTHONPATH=src python -m metafusion_lab report \
   --format truthcert \
   --input /mnt/c/Users/user/truthcert/saved_verify_response.json
 ```
@@ -116,7 +116,7 @@ Fuse validated `rct-extractor-v2` rows with TruthCert verification:
 
 ```bash
 cd /mnt/c/Users/user/MetaFusion-Lab
-PYTHONPATH=src python3 -m metafusion_lab report \
+PYTHONPATH=src python -m metafusion_lab report \
   --format fused \
   --input /mnt/c/Users/user/rct-extractor-v2/output/external_all_validated_augmented_v3_deep_pdf_only_advfix_ma_records_validated.jsonl \
   --truthcert-input /mnt/c/Users/user/truthcert/saved_verify_response.json
@@ -126,7 +126,7 @@ You can also point `--truthcert-input` at a directory of exported TruthCert veri
 
 ```bash
 cd /mnt/c/Users/user/MetaFusion-Lab
-PYTHONPATH=src python3 -m metafusion_lab report \
+PYTHONPATH=src python -m metafusion_lab report \
   --format fused \
   --input /mnt/c/Users/user/rct-extractor-v2/output/external_all_validated_augmented_v3_deep_pdf_only_advfix_ma_records_validated.jsonl \
   --truthcert-input /mnt/c/Users/user/truthcert/exports/
@@ -136,7 +136,7 @@ You can run fused imports from batch directories on both sides:
 
 ```bash
 cd /mnt/c/Users/user/MetaFusion-Lab
-PYTHONPATH=src python3 -m metafusion_lab report \
+PYTHONPATH=src python -m metafusion_lab report \
   --format fused \
   --input /mnt/c/Users/user/rct-extractor-v2/output/batches/ \
   --truthcert-input /mnt/c/Users/user/truthcert/exports/
@@ -154,7 +154,7 @@ You can also export a structured reconciliation ledger for review, audit, or dow
 
 ```bash
 cd /mnt/c/Users/user/MetaFusion-Lab
-PYTHONPATH=src python3 -m metafusion_lab report \
+PYTHONPATH=src python -m metafusion_lab report \
   --format fused \
   --input /mnt/c/Users/user/rct-extractor-v2/output/external_all_validated_augmented_v3_deep_pdf_only_advfix_ma_records_validated.jsonl \
   --truthcert-input /mnt/c/Users/user/truthcert/exports/ \

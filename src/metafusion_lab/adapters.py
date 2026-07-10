@@ -440,7 +440,9 @@ def _rct_payload_to_trial_record(payload: dict[str, Any]) -> TrialRecord:
         standard_error=standard_error,
         sample_size=_infer_sample_size(payload),
         extraction_confidence=_to_float(
-            payload.get("extraction_confidence") or payload.get("confidence")
+            payload.get("extraction_confidence")
+            if payload.get("extraction_confidence") is not None
+            else payload.get("confidence")
         ),
         risk_of_bias=_to_float(payload.get("risk_of_bias")),
         registry_match=_to_float(payload.get("registry_match")),
@@ -929,6 +931,8 @@ def _derive_log_standard_error(
     if point_estimate <= 0:
         raise ValueError("Point estimate must be positive for log-scale synthesis.")
     if standard_error is not None:
+        if standard_error <= 0:
+            raise ValueError("standard_error must be > 0 for log-scale synthesis.")
         return standard_error
     if ci_lower is None or ci_upper is None or ci_lower <= 0 or ci_upper <= 0:
         raise ValueError("A log-scale effect needs either standard_error or positive CI bounds.")

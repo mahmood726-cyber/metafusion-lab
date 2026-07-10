@@ -5,7 +5,17 @@ from math import exp, sqrt
 from .models import LedgerEntry, MetaSummary, TrialRecord
 
 
+def _require_positive_standard_errors(records: list[TrialRecord]) -> None:
+    for record in records:
+        if record.standard_error <= 0:
+            raise ValueError(
+                "standard_error must be > 0 "
+                f"(study {record.study_id!r} has {record.standard_error})."
+            )
+
+
 def estimate_tau2(records: list[TrialRecord]) -> float:
+    _require_positive_standard_errors(records)
     if len(records) < 2:
         return 0.0
 
@@ -36,6 +46,7 @@ def summarize_meta_analysis(
 ) -> MetaSummary:
     if not records:
         raise ValueError("At least one trial record is required.")
+    _require_positive_standard_errors(records)
 
     tau2 = estimate_tau2(records)
     certainty_by_study = {
@@ -49,11 +60,20 @@ def summarize_meta_analysis(
             weight *= certainty_by_study.get(record.study_id, 1.0)
         weights.append(weight)
 
+    weight_total = sum(weights)
     pooled_log_rr = sum(
         weight * record.effect_log_rr
         for weight, record in zip(weights, records, strict=True)
-    ) / sum(weights)
-    pooled_se = sqrt(1.0 / sum(weights))
+    ) / weight_total
+    # Sandwich (robust) variance for a weighted inverse-variance mean. This
+    # reduces to 1/sum(weights) when weights are the unmodified inverse
+    # variances, but stays correct when weights are rescaled by certainty
+    # factors -- a uniform rescale then leaves the CI unchanged, as it must.
+    pooled_variance = sum(
+        weight**2 * (record.standard_error**2 + tau2)
+        for weight, record in zip(weights, records, strict=True)
+    ) / weight_total**2
+    pooled_se = sqrt(pooled_variance)
     z_value = 1.96
 
     return MetaSummary(
